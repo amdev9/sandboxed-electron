@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
-
+ 
 require = null;
 const flatten = (obj) => Object.keys(obj)
   .reduce((acc, key) => {
@@ -32,3 +32,8 @@ class SafeIpcRenderer {
 window.ipc = new SafeIpcRenderer([
   "rpc-communicate"
 ]);
+
+window.test = {
+  test: "123123",
+  me: "fuck"
+};

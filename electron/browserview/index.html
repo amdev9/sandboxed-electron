@@ -24,12 +24,9 @@
 		}
 
 		function sendEvilIpcMessage() {
-			s.sendSync('ELECTRON_BROWSER_GET_BUILTIN', 'app');
+			document.getElementById("messageId").value = window.test.me; //JSON.stringify(Object.keys(s));
 			/* evil channel, blocked */
 		}
-
-		
-
 		
 	</script>
 

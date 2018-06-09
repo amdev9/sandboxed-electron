@@ -5,11 +5,12 @@
 
 const { app, BrowserWindow, BrowserView } = require('electron');
 const path = require('path');
+import configureStore from './store/configureStore';
+import createMainWindow from './createMainWindow';
+import createBrowserView from './createBrowserView';
 
-
-
-const RENDERER_PATH = path.join(__dirname, 'renderer');
-const VIEW_PATH = path.join(__dirname, 'browserview');
+const CLIENT_PATH = path.join(__dirname, '..', 'client');
+const DAPPS_PATH = path.join(__dirname, '..', 'dapps');
 
 let win, view, view2;
 let bounds = {
@@ -27,10 +28,10 @@ app.on('ready', () => {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(RENDERER_PATH, 'preload-extended.js')
+      preload: path.join(CLIENT_PATH, 'preload.js')
     }
   })
-  win.loadURL('file://' + path.join(RENDERER_PATH, 'index.html'));
+  win.loadURL('file://' + path.join(CLIENT_PATH, 'index.html'));
 
   // create multiple view and keep them around the memory, detached from the window
   // then switching workspaces is just and additional call to setBrowserView
@@ -39,7 +40,7 @@ app.on('ready', () => {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(VIEW_PATH, 'preload-extended.js')
+      preload: path.join(DAPPS_PATH, 'preload.js')
       // [ 
         // path.join(VIEW_PATH, 'test.js')
       // ]
@@ -48,19 +49,19 @@ app.on('ready', () => {
 
   // win.setBrowserView(view);
   // view.setBounds(bounds);
-  view.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index.html'));
+  view.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'index.html'));
 
   view2 = new BrowserWindow({
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(VIEW_PATH, 'preload-extended.js')
+      preload: path.join(VIEW_PATH, 'preload.js')
       //   path.join(VIEW_PATH, 'test.js') 
       // ]
     }
   });
-  view2.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index2.html'));
+  view2.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'index2.html'));
   process.stdout.write("BrowserView identificators: " + view.id + ", " + view2.id);
 });
 

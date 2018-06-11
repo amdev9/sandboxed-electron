@@ -18,6 +18,8 @@ const { ipcRenderer } = require('electron');
 //     type: 'INCREMENT_COUNTER'
 //   };
 // }
+
+// window.api = store.dispatch(incrementTest());
  
 require = null;
 const flatten = (obj) => Object.keys(obj)

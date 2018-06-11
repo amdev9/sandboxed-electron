@@ -1,4 +1,8 @@
+// https://electronjs.org/docs/api/sandbox-option
+// https://gist.github.com/substack/68f8d502be42d5cd4942
+
 const { ipcRenderer } = require('electron');
+
  
 // dispatch all api actions, security code place here
 

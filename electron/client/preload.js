@@ -5,10 +5,6 @@ const {
 
 // security code
 
-const {
-  ipcRenderer
-} = require('electron');
-
 require = null;
 
 

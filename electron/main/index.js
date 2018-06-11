@@ -5,9 +5,9 @@
 
 const { app, BrowserWindow, BrowserView } = require('electron');
 const path = require('path');
-import configureStore from './store/configureStore';
-import createMainWindow from './createMainWindow';
-import createBrowserView from './createBrowserView';
+// import configureStore from './store/configureStore';
+// import createMainWindow from './createMainWindow';
+// import createBrowserView from './createBrowserView';
 
 const CLIENT_PATH = path.join(__dirname, '..', 'client');
 const DAPPS_PATH = path.join(__dirname, '..', 'dapps');
@@ -49,19 +49,19 @@ app.on('ready', () => {
 
   // win.setBrowserView(view);
   // view.setBounds(bounds);
-  view.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'index.html'));
+  view.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'dappBrowserView1', 'index.html'));
 
   view2 = new BrowserWindow({
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(VIEW_PATH, 'preload.js')
+      preload: path.join(DAPPS_PATH, 'preload.js')
       //   path.join(VIEW_PATH, 'test.js') 
       // ]
     }
   });
-  view2.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'index2.html'));
+  view2.webContents.loadURL('file://' + path.join(DAPPS_PATH, 'dappBrowserView2', 'index2.html'));
   process.stdout.write("BrowserView identificators: " + view.id + ", " + view2.id);
 });
 

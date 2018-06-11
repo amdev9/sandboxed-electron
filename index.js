@@ -4,7 +4,7 @@ const proc = require('child_process')
 console.log("path to electron: " + electron)
 console.log("dirname: " + __dirname)
 
-console.log('proc.spawn should execute: ' + electron + ' --enable-sandbox  ' + __dirname + "/electron/main/index.js"); // change to main.prod.js
+console.log('proc.spawn should execute: ' + electron + ' --enable-sandbox  ' + __dirname + "/electron/main/"); // index.js // change to main.prod.js
 /*
 	It is CRITICAL that you run electron with the --enable-sandbox on the MAIN process.
 	If you do not do this, then the OS-enforced sandbox is NOT ENABLED.

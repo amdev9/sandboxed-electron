@@ -1,11 +1,24 @@
+// dispatch all api actions, security code place here
+
 // https://electronjs.org/docs/api/sandbox-option
 // https://gist.github.com/substack/68f8d502be42d5cd4942
 
+// https://electronjs.org/docs/tutorial/security#6-define-a-content-security-policy
+// service-request-channel-token=3D6A536737048E69E7A6F30BAE744AFB --- uniq id param
+
 const { ipcRenderer } = require('electron');
 
- 
-// dispatch all api actions, security code place here
+// const { getInitialStateRenderer } = require('electron-redux');
+// const configureStore = require('../store/configureStore');
+// const initialState = getInitialStateRenderer();
+// const store = configureStore(initialState, 'renderer');
 
+// function incrementTest() {
+//   return {
+//     type: 'INCREMENT_COUNTER'
+//   };
+// }
+ 
 require = null;
 const flatten = (obj) => Object.keys(obj)
   .reduce((acc, key) => {

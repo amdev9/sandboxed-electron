@@ -10,9 +10,9 @@ export default function createWindow() {
         x: 0,
         y: 0,
         webPreferences: {
-            nodeIntegration: false,
-            sandbox: true,
-            contextIsolation: true,
+            // nodeIntegration: false,
+            // sandbox: true,
+            // contextIsolation: true,
             //   preload: path.join(CLIENT_PATH, 'preload.js')
         }
     });

@@ -39,10 +39,10 @@ export default {
     // https://github.com/webpack/webpack/issues/1114
     libraryTarget: 'commonjs2'
   },
-  // externals: [
-  //   ...Object.keys(externals || {})
-  //   //.filter(filterDepWithoutEntryPoints)
-  // ],
+  externals: [
+    ...Object.keys(externals || {})
+    //.filter(filterDepWithoutEntryPoints)
+  ],
   /**
    * Determine the array of extensions that should be used to resolve modules.
    */

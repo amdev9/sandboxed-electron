@@ -1,3 +1,5 @@
+// tutorial https://blog.scottlogic.com/2017/06/06/typescript-electron-webpack.html
+
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
  

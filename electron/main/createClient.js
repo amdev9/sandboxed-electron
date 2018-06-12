@@ -1,6 +1,5 @@
-import {
-    BrowserWindow
-} from 'electron';
+import { BrowserWindow } from 'electron';
+import path from 'path';
 import MenuBuilder from './menu';
 
 let mainWindow = null;
@@ -13,7 +12,9 @@ export default function createWindow() {
         height: 728
     });
 
-    mainWindow.loadURL(`file://${__dirname}/app.html`);
+    const CLIENT_PATH = path.join(__dirname, '..', 'client');    
+ 
+    mainWindow.loadURL('file://'.concat(path.join(CLIENT_PATH, 'index.html')));
 
     // @TODO: Use 'ready-to-show' event
     //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event

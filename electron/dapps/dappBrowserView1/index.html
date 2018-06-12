@@ -1,6 +1,6 @@
 <body style="background-color:powderblue;">
 	<script>
-		var s = window.ipc;
+		var s = window.api;
 
 		// // SECURITY TEST
 		// /* * 
@@ -13,20 +13,21 @@
 		// s.send = sendMutation;
 		//
 
-		s.on('rpc-communicate', (event, text) => {
-			document.getElementById("messageId").value = text;
-		});
+		// s.on('rpc-communicate', (event, text) => {
+		// 	document.getElementById("messageId").value = text;
+		// });
 
 		function sendValidIpcMessage() {
+			s();
 			// start the rpc
-			var firstTest = s.sendSync('rpc-start', 'from view 1', 'browserview');
-			alert(firstTest);
+			// var firstTest = s.sendSync('rpc-start', 'from view 1', 'browserview');
+			// alert(firstTest);
 		}
 
-		function sendEvilIpcMessage() {
-			document.getElementById("messageId").value = window.test.me; //JSON.stringify(Object.keys(s));
-			/* evil channel, blocked */
-		}
+		// function sendEvilIpcMessage() {
+		// 	document.getElementById("messageId").value = window.test.me; //JSON.stringify(Object.keys(s));
+		// 	/* evil channel, blocked */
+		// }
 		
 	</script>
 

@@ -36,10 +36,10 @@ export default {
     new UglifyJSPlugin({
       parallel: true,
     }),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production',
-      DEBUG_PROD: 'false'
-    })
+    // new webpack.EnvironmentPlugin({
+    //   NODE_ENV: 'production',
+    //   DEBUG_PROD: 'false'
+    // })
   ],
 
   /**

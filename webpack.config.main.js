@@ -1,3 +1,8 @@
+import webpack from 'webpack';
+
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+
 export default {
   devtool: 'source-map',
   mode: 'production',
@@ -20,5 +25,15 @@ export default {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production'
+    }),
+    new webpack.NamedModulesPlugin(),
+    // new UglifyJSPlugin({
+    //   parallel: true,
+    //   sourceMap: true
+    // })
+  ]
 }

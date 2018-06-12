@@ -9,7 +9,7 @@
 const { ipcRenderer } = require('electron');
 
 // const { getInitialStateRenderer } = require('electron-redux');
-// const configureStore = require('../store/configureStore');
+// const configureStore = require('../shared/store/configureStore');
 // const initialState = getInitialStateRenderer();
 // const store = configureStore(initialState, 'renderer');
 

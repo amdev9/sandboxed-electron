@@ -9,7 +9,7 @@ import {
   replayActionMain,
   replayActionRenderer
 } from 'electron-redux';
-import rootReducer from '../reducers';
+import rootReducer from '../../client/reducers';
  
 // import DevTools from '../components/DevTools';
 
@@ -56,8 +56,8 @@ const configureStore = (initialState, scope = 'main') => {
 
   if (module.hot) {
     module.hot.accept(
-      '../reducers',
-      () => store.replaceReducer(require('../reducers')) // eslint-disable-line global-require
+      '../../client/reducers',
+      () => store.replaceReducer(require('../../client/reducers')) // eslint-disable-line global-require
     );
   }
 

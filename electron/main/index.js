@@ -34,8 +34,8 @@ async function start() {
 
   mainWin = createClient();
 
-  const bv = createDapp(mainWin);
-  console.log(bv.id);
+  // const bv = createDapp(mainWin);
+  // console.log(bv.id);
 }
 
 app.on('ready', async () => {

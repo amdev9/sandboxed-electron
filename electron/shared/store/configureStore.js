@@ -54,12 +54,12 @@ const configureStore = (initialState, scope = 'main') => {
   // Create Store
   const store = createStore(rootReducer, initialState, enhancer);
 
-  if (module.hot) {
-    module.hot.accept(
-      '../../client/reducers',
-      () => store.replaceReducer(require('../../client/reducers')) // eslint-disable-line global-require
-    );
-  }
+  // if (module.hot) {
+  //   module.hot.accept(
+  //     '../../client/reducers',
+  //     () => store.replaceReducer(require('../../client/reducers')) // eslint-disable-line global-require
+  //   );
+  // }
 
   if (scope === 'main') {
     replayActionMain(store);

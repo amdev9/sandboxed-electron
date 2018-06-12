@@ -1,6 +1,6 @@
 import { BrowserWindow } from 'electron';
 import path from 'path';
-import MenuBuilder from './menu';
+// import MenuBuilder from './menu';
 
 let mainWindow = null;
 
@@ -12,9 +12,9 @@ export default function createWindow() {
         height: 728
     });
 
-    const CLIENT_PATH = path.join(__dirname, '..', 'client');    
+    // const CLIENT_PATH = '/home/pidgin/job/boilerplate/sandboxed-electron/electron/client'; //path.join(__dirname, '..', 'client');    
  
-    mainWindow.loadURL('file://'.concat(path.join(CLIENT_PATH, 'index.html')));
+    mainWindow.loadURL('file:///home/pidgin/job/boilerplate/sandboxed-electron/electron/client/index.html'); //'.concat(path.join(CLIENT_PATH, 'index.html')));
 
     // @TODO: Use 'ready-to-show' event
     //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
@@ -30,8 +30,8 @@ export default function createWindow() {
         mainWindow = null;
     });
 
-    const menuBuilder = new MenuBuilder(mainWindow);
-    menuBuilder.buildMenu();
+    // const menuBuilder = new MenuBuilder(mainWindow);
+    // menuBuilder.buildMenu();
 
     return mainWindow;
 }

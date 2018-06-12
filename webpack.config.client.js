@@ -4,6 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { dependencies as possibleExternals } from './package.json';
 
+// externals?
 // Find all the dependencies without a `main` property and add them as webpack externals
 // function filterDepWithoutEntryPoints(dep) {
 //   // Return true if we want to add a dependency to externals

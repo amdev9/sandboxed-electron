@@ -8,7 +8,8 @@
     "start": "node index.js",
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
     "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.client.js --colors",
-    "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.main.js --colors"
+    "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.main.js --colors",
+    "build-preload": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.preload.js --colors"
   },
   "author": "Kewde",
   "license": "MIT",

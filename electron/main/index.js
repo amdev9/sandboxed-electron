@@ -40,7 +40,7 @@ app.on('ready', () => {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(DAPPS_PATH, 'preload.js')
+      preload: path.join(DAPPS_PATH, 'preload.prod.js')
       // [ 
         // path.join(VIEW_PATH, 'test.js')
       // ]
@@ -56,7 +56,7 @@ app.on('ready', () => {
       nodeIntegration: false,
       sandbox: true,
       contextIsolation: true,
-      preload: path.join(DAPPS_PATH, 'preload.js')
+      preload: path.join(DAPPS_PATH, 'preload.prod.js')
       //   path.join(VIEW_PATH, 'test.js') 
       // ]
     }

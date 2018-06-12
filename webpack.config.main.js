@@ -1,6 +1,6 @@
 import webpack from 'webpack';
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin') 
-import { dependencies as possibleExternals } from './package.json';
+ 
+import { dependencies as externals } from './package.json';
 
 // Find all the dependencies without a `main` property and add them as webpack externals
 function filterDepWithoutEntryPoints(dep) {
@@ -21,7 +21,7 @@ function filterDepWithoutEntryPoints(dep) {
     return true;
   }
 }
-
+ 
 export default {
   devtool: 'source-map',
   mode: 'production',
@@ -31,6 +31,16 @@ export default {
     path: __dirname,
     filename: './electron/main/main.prod.js'
   },
+  
+  // externals: [
+  //   ...Object.keys(externals || {})
+  //   //.filter(filterDepWithoutEntryPoints)
+  // ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [__dirname, 'node_modules']
+  },
+
   module: {
     rules: [
       {
@@ -45,18 +55,12 @@ export default {
       }
     ]
   },
-  // externals: [
-  //   ...Object.keys(possibleExternals || {})
-  // ],
+ 
 
   plugins: [
-    // new webpack.EnvironmentPlugin({
-    //   NODE_ENV: 'production'
-    // }),
-    new webpack.NamedModulesPlugin(),
-    // new UglifyJSPlugin({
-    //   parallel: true,
-    //   sourceMap: true
-    // })
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production'
+    }),
+    new webpack.NamedModulesPlugin()
   ]
 }

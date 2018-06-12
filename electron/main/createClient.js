@@ -7,9 +7,14 @@ let mainWindow = null;
 export default function createWindow() {
 
     mainWindow = new BrowserWindow({
-        show: false,
-        width: 1024,
-        height: 728
+        x: 0,
+        y: 0,
+        webPreferences: {
+            nodeIntegration: false,
+            sandbox: true,
+            contextIsolation: true,
+            //   preload: path.join(CLIENT_PATH, 'preload.js')
+        }
     });
 
     // const CLIENT_PATH = '/home/pidgin/job/boilerplate/sandboxed-electron/electron/client'; //path.join(__dirname, '..', 'client');    

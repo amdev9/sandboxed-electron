@@ -31,16 +31,16 @@ export default {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-renderer',
-  entry: './electron/client/index',
+  entry: './electron/client/index.js',
   output: {
     path: __dirname,
     filename: './electron/client/client.prod.js'
   },
-  output: {
-    path: path.join(__dirname, 'electron', 'client'),
-    // https://github.com/webpack/webpack/issues/1114
-    libraryTarget: 'commonjs2'
-  },
+  // output: {
+  //   path: path.join(__dirname, 'electron', 'client'),
+  //   // https://github.com/webpack/webpack/issues/1114
+  //   libraryTarget: 'commonjs2'
+  // },
   externals: [
     ...Object.keys(externals || {})
     //.filter(filterDepWithoutEntryPoints)

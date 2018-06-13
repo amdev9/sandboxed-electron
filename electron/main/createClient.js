@@ -17,9 +17,9 @@ export default function createWindow() {
         }
     });
 
-    // const CLIENT_PATH = '/home/pidgin/job/boilerplate/sandboxed-electron/electron/client'; //path.join(__dirname, '..', 'client');    
+    const CLIENT_PATH = '/Users/pidgin/dev/boilerplate/sandboxed-electron/electron/client/index.html'; //path.join(__dirname, '..', 'client');    
  
-    mainWindow.loadURL('file:///home/pidgin/job/boilerplate/sandboxed-electron/electron/client/index.html'); //'.concat(path.join(CLIENT_PATH, 'index.html')));
+    mainWindow.loadURL('file://' + CLIENT_PATH);//path.join(__dirname, '..', 'client', 'index.html')); //'.concat(path.join(CLIENT_PATH, 'index.html')));
 
     // @TODO: Use 'ready-to-show' event
     //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event

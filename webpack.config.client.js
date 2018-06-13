@@ -2,10 +2,12 @@
 
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
- 
+
 import path from 'path';
 
-import { dependencies as externals } from './package.json';
+import {
+  dependencies as externals
+} from './package.json';
 
 // Find all the dependencies without a `main` property and add them as webpack externals
 function filterDepWithoutEntryPoints(dep) {
@@ -36,6 +38,7 @@ export default {
     path: __dirname,
     filename: './electron/client/client.prod.js'
   },
+
   // output: {
   //   path: path.join(__dirname, 'electron', 'client'),
   //   // https://github.com/webpack/webpack/issues/1114
@@ -54,18 +57,18 @@ export default {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
+    rules: [{
+        test: /\.(js|jsx)$/,
+        exclude: [/node_modules/],
+        use: [{
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
+            presets: ['es2015', 'react']
+            // plugins: ['transform-object-rest-spread', 'async-to-promises']
           }
-        }
+        }],
       },
-      
+
       // Extract all .global.css to style.css as is
       {
         test: /\.global\.css$/,

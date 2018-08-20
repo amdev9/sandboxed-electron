@@ -11,7 +11,7 @@ const VIEW_PATH = path.join(__dirname, 'browserview');
 
 let win, view, view2;
 let bounds = {
-  x: 300,
+  x: 400,
   y: 0,
   width: 300,
   height: 300

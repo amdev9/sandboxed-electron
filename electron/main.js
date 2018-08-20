@@ -55,6 +55,18 @@ app.on('ready', () => {
   });
   view2.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index2.html'));
   process.stdout.write("BrowserView identificators: " + view.id + ", " + view2.id);
+
+  view3 = new BrowserView({
+    webPreferences: {
+      nodeIntegration: false,
+      sandbox: true,
+      contextIsolation: true,
+      preload: path.join(VIEW_PATH, 'preload-extended.js')
+    }
+  });
+  view3.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index3.html'));
+ 
+
 });
 
 process.stdout.write("Main initialized");
@@ -77,6 +89,14 @@ ipcMain.on('rpc-switch', function (event, rpc, arg) {
     case 2:
       win.setBrowserView(view2);
       view2.setBounds(bounds);
+      break;
+    case 3:
+      win.setBrowserView(view3);
+      view3.setBounds(bounds);
+      break;
+    case 4:
+      win.setBrowserView(null);
+      // view3.setBounds(bounds);
       break;
     default:
       alert("No such browserview");

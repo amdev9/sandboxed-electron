@@ -41,8 +41,8 @@ app.on('ready', () => {
     }
   });
 
-  win.setBrowserView(view);
-  view.setBounds(bounds);
+  // win.setBrowserView(view);
+  // view.setBounds(bounds);
   view.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index.html'));
 
   view2 = new BrowserView({

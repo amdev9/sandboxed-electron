@@ -24,7 +24,7 @@ app.on('ready', () => {
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
-      contextIsolation: true,
+ 
       preload: path.join(RENDERER_PATH, 'preload-extended.js')
     }
   })
@@ -36,7 +36,7 @@ app.on('ready', () => {
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
-      contextIsolation: true,
+   
       preload: path.join(VIEW_PATH, 'preload-extended.js')
     }
   });
@@ -49,7 +49,7 @@ app.on('ready', () => {
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
-      contextIsolation: true,
+ 
       preload: path.join(VIEW_PATH, 'preload-extended.js')
     }
   });
@@ -60,7 +60,7 @@ app.on('ready', () => {
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
-      contextIsolation: true,
+   
       preload: path.join(VIEW_PATH, 'preload-extended.js')
     }
   });

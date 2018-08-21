@@ -9,7 +9,7 @@ const path = require('path');
 const RENDERER_PATH = path.join(__dirname, 'renderer');
 const VIEW_PATH = path.join(__dirname, 'browserview');
 
-let win, view, view2;
+let win, view, view2, view3;
 let bounds = {
   x: 400,
   y: 0,
@@ -30,32 +30,27 @@ app.on('ready', () => {
   })
   win.loadURL('file://' + path.join(RENDERER_PATH, 'index.html'));
 
+
   // create multiple view and keep them around the memory, detached from the window
   // then switching workspaces is just and additional call to setBrowserView
   view = new BrowserView({
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
-   
       preload: path.join(VIEW_PATH, 'preload-extended.js')
     }
   });
-
-  // win.setBrowserView(view);
-  // view.setBounds(bounds);
   view.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index.html'));
 
   view2 = new BrowserView({
     webPreferences: {
       nodeIntegration: false,
       sandbox: true,
- 
       preload: path.join(VIEW_PATH, 'preload-extended.js')
     }
   });
   view2.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index2.html'));
-  process.stdout.write("BrowserView identificators: " + view.id + ", " + view2.id);
-
+  
   view3 = new BrowserView({
     webPreferences: {
       nodeIntegration: false,
@@ -66,7 +61,7 @@ app.on('ready', () => {
   });
   view3.webContents.loadURL('file://' + path.join(VIEW_PATH, 'index3.html'));
  
-
+  process.stdout.write("BrowserView identificators: " + view.id + ", " + view2.id + ", " + view3.id);
 });
 
 process.stdout.write("Main initialized");
@@ -96,7 +91,6 @@ ipcMain.on('rpc-switch', function (event, rpc, arg) {
       break;
     case 4:
       win.setBrowserView(null);
-      // view3.setBounds(bounds);
       break;
     default:
       alert("No such browserview");

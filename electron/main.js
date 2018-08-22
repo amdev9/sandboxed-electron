@@ -4,6 +4,14 @@
 */
 
 const { app, BrowserWindow, BrowserView } = require('electron');
+require('electron-context-menu')({
+	prepend: (params, browserWindow) => [{
+		label: 'Rainbow',
+		// Only show it when right-clicking images
+		// visible: params.mediaType === 'image'
+	}]
+});
+
 const path = require('path');
 
 const RENDERER_PATH = path.join(__dirname, 'renderer');
@@ -16,6 +24,8 @@ let bounds = {
   width: 300,
   height: 300
 };
+
+
 
 app.on('ready', () => {
   win = new BrowserWindow({
